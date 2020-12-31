@@ -13,7 +13,7 @@
 
 .card-widget.WiCrypto .spn-pair-price {
     position: absolute;
-    left: 100px;
+    right: 5px;
 }
 /**********************************/
 .card-widget.WiCrypto .list-pair-info{

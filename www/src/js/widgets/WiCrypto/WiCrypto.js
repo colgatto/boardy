@@ -87,11 +87,11 @@ class WiCrypto extends Widget{
 			pData.domA = $('<a></a>');
 			pData.domLabel = $('<span class="spn-pair-label">' + pData.label + '</span>');
 			pData.domPrice = $('<span class="spn-pair-price">0</span>');
-			pData.domSize = $('<span class="spn-pair-size">0</span>');
+			//pData.domSize = $('<span class="spn-pair-size">0</span>');
 			
 			pData.domA.append(pData.domLabel);
 			pData.domA.append(pData.domPrice);
-			pData.domA.append(pData.domSize);
+			//pData.domA.append(pData.domSize);
 			
 			pData.domLi = $('<li class="list-pair"></li>');
 			pData.domLi.append(pData.domA);
@@ -169,7 +169,7 @@ class WiCrypto extends Widget{
 						this.liPairs[d.s].domPrice.css('color', '#f84960');
 					
 					this.liPairs[d.s].domPrice.html( this.parsePrice(d.p) );
-					this.liPairs[d.s].domSize.html(d.q);
+					//this.liPairs[d.s].domSize.html(d.q);
 					break;
 				
 				case 'depthUpdate':
