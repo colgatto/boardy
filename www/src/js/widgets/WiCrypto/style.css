@@ -1,0 +1,65 @@
+.card-widget.WiCrypto .list-pair{
+	border-bottom: 1px solid #00000091;
+}
+.card-widget.WiCrypto .list-pair:nth-last-child(2) {
+    margin-bottom: -1px;
+}
+
+.card-widget.WiCrypto .list-pair a {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.card-widget.WiCrypto .spn-pair-price {
+    position: absolute;
+    left: 100px;
+}
+/**********************************/
+.card-widget.WiCrypto .list-pair-info{
+	display: none;
+}
+
+.card-widget.WiCrypto .list-pair-info li {
+    padding: 0;
+	margin: 0;
+	font-size: 12px;
+	border-bottom: 1px solid #00000091;
+}
+/**********************************/
+.card-widget.WiCrypto .depth_price{
+	font-weight: bold;
+	padding-left: 5px;
+	position: relative;
+	z-index: 1;
+}
+.card-widget.WiCrypto .depth_asks .depth_price{
+	color: #f84960;
+}
+
+.card-widget.WiCrypto .depth_bids .depth_price{
+	color: #02c076;
+}
+/**********************************/
+.card-widget.WiCrypto .depth_qnt{
+	float: right;
+	padding-right: 5px;
+	position: relative;
+	z-index: 2;
+}
+/**********************************/
+.card-widget.WiCrypto .depth_bar {
+    position: absolute;
+    width: 89%;
+    height: 18px;
+    right: 0;
+    z-index: 1;
+    margin-top: -18px;
+}
+.card-widget.WiCrypto .depth_asks .depth_bar{
+    background: #f8496054;
+}
+.card-widget.WiCrypto .depth_bids .depth_bar{
+	background: #02c07654;
+}
+/**********************************/

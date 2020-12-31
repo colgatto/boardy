@@ -1,0 +1,8 @@
+.card-widget.WiDraw li:nth-child(2){
+	text-align: center;
+}
+
+.card-widget.WiDraw canvas{
+	border: 1px solid #ffffff;
+	vertical-align: middle;
+}

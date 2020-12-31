@@ -1,0 +1,19 @@
+.card-widget.WiSpacer{
+	height: 300px;
+	background: transparent !important;
+	border: 0;
+	/*border: 1px solid #ffffff;*/
+	box-shadow: none;
+}
+.card-widget.WiSpacer::before {
+    box-shadow: none;
+}
+.card-widget.WiSpacer *{
+	display: none;
+}
+
+@media (max-width:1200px){
+	.card-widget.WiSpacer{
+		display: none;
+	}
+}

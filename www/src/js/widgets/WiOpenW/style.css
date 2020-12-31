@@ -1,0 +1,13 @@
+.card-widget.WiOpenW table{
+	width: 100%;
+}
+.card-widget.WiOpenW tr{
+	border-bottom: 1px solid;
+}
+.card-widget.WiOpenW tr:last-child{
+	border-bottom: 0;
+}
+.card-widget.WiOpenW .lbl-day{
+	padding: 3px;
+	padding-left: 5px;
+}
