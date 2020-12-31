@@ -6,7 +6,7 @@ It's used to replace your homepage, with a more smart and customizzable one.
 
 All settings are editables from GUI, no need to access code.
 
-Backend is in PHP, I try to put all logic to frontend so you can easily rewrite the backand in any language, are just a few line of code.
+Backend is in PHP, I try to put all logic to frontend so you can easily rewrite the backend in any language, are just a few line of code.
 
 ## Demo
 
