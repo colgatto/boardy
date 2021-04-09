@@ -12,24 +12,10 @@ if(isset($_POST['widgets'])){
 	}
 	die('OK');
 }
+require_once 'include/head.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Boardy Editor</title>
-	
 	<link rel="stylesheet" href="lib/css/choices.min.css">
-	<link rel="stylesheet" href="lib/css/bootstrap.min.css">
-	<link rel="stylesheet" href="lib/css/fontawesome.min.css">
-	<link rel="stylesheet" href="src/css/style.css">
-	<link rel="stylesheet" href="src/css/colors.css">
-	<link rel="stylesheet" href="src/css/stars_background.css">
-
-	<script src="lib/js/jquery-3.5.1.min.js"></script>
-	<script src="lib/js/popper.min.js"></script>
 	<script src="lib/js/choices.min.js"></script>
-	<script src="lib/js/bootstrap.min.js"></script>
 	<script src="lib/js/jsoneditor.min.js"></script>
 	
 	<script src="src/js/schema.js"></script>
@@ -44,37 +30,135 @@ if(isset($_POST['widgets'])){
 			}
 		}
 	?>
+
 	<style>
+		html,
 		body{
-		    overflow-y: auto;
+			height: 100%;
+		}
+		body{
+			overflow-y: hidden;
 		}
 		.alert.alert-danger{
 			display: none;
 		}
+		.container{
+			padding: 0;
+			overflow-y: auto;
+			height: 100%;
+		}
+		#config{
+			position: absolute;
+			left: 3px;
+			top: 3px;
+			z-index: 10;
+		}
+
+		.form-control {
+			background: transparent;
+			height: 44px !important;
+		}
+		.form-control:focus {
+			background-color: transparent;
+			border-color: #00e7ff94;
+			outline: 0;
+			box-shadow: 0 0 0 .2rem rgba(0, 231, 255, 0.44);
+		}
+
+		.nav-pills .nav-link {
+			border: 0;
+			border-radius: 0;
+		}
+
+		.nav-pills .nav-item {
+			border-radius: 0;
+			border: 1px solid #ffffff;
+			border-top: 0;
+		}
+		.nav-pills .nav-item:first-child {
+			border-top: 1px solid #ffffff;
+		}
+
+		.nav-pills .nav-item:first-child {
+			border-top-left-radius: .25rem;
+			border-top-right-radius: .25rem;
+		}
+
+		.nav-pills .nav-item:last-child {
+			border-bottom-left-radius: .25rem;
+			border-bottom-right-radius: .25rem;
+		}
+
+		.card table tr:last-child td:last-child .json-editor-btn-moveup{
+			border-top-right-radius: .25rem;
+			border-bottom-right-radius: .25rem;
+		}
+
+		.tab-pane:last-child .btn-group .json-editor-btn-moveup{
+			border-top-right-radius: .25rem;
+			border-bottom-right-radius: .25rem;
+		}
+
+		.fixed-footer{
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: 10;
+			padding: 10px;
+			background: #00e7ff24;
+			border-top: 1px solid #00e7ff;
+		}
+				
+		/********** CUSTOM CHOISES **********/
+
+		.choices__inner{
+			display: block;
+			min-width: 150px;
+			height: calc(1.5em + .75rem + 2px);
+			padding: .375rem .75rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			background: transparent;
+			border: 1px solid #ffffff;
+			border-radius: .25rem;
+		}
+		.choices__list--dropdown{
+			background: #000000e0;
+			color: #ffffff;
+		}
+		.is-highlighted,
+		.choices__item:hover{
+			color: #000000;
+		}
+		.choices__list--single .choices__item:hover{
+			color: #ffffff;
+		}
+
 	</style>
 </head>
-<body class="flex-center">
-	<!--
-	<div clas="stars-background">
-		<div id='stars'></div>
-		<div id='stars2'></div>
-		<div id='stars3'></div>
-	</div>
-	-->
-	<div class="spinner">
-		<div class="ring"></div>
-		<div class="ring"></div>
-		<div class="dot"></div>
-	</div>
-
-	<div id="editor_holder"></div>
-	
-	<div class="fixed-footer">
-		<button class="btn" id="home">Home</button>
-		<button class="btn" id="save">Save</button>
-	    <span id="valid_indicator"></span>
+<body>
+	<ul class="nav nav-tabs justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+		<li class="nav-item"><a class="nav-link" href="news.php">News</a></li>
+		<li class="nav-item"><a class="nav-link" href="utils.php">Utils</a></li>
+		<li class="nav-item"><a class="nav-link active fas fa-cog" href="editor.php"></a></li>
+	</ul>
+	<div class="container flex-center">
+		<div class="spinner">
+			<div class="ring"></div>
+			<div class="ring"></div>
+			<div class="dot"></div>
+		</div>
+		<div id="editor_holder"></div>
+		<div class="fixed-footer">
+			<button class="btn" id="home">Home</button>
+			<button class="btn" id="save">Save</button>
+			<span id="valid_indicator"></span>
+		</div>
 	</div>
 	<script>
+
 		let config;
 
 		const updateEditor = (editor) => {
@@ -122,7 +206,7 @@ if(isset($_POST['widgets'])){
 			});
 
 			editor.on('ready',() => {
-				$('body').removeClass('flex-center');
+				$('.container').removeClass('flex-center');
 				$('.spinner').hide();
 			});
 

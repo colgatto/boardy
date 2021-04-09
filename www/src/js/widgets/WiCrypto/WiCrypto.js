@@ -126,7 +126,7 @@ class WiCrypto extends Widget{
 	}
 
 	async setup(){
-
+	/**/
 		let allP = await this.getAllTicks();
 		//let initV = {};
 		for(let i = 0, l = allP.length; i < l; i++){
@@ -152,6 +152,7 @@ class WiCrypto extends Widget{
 		this.render(cont);
 
 		//1 Open a stream to wss://stream.binance.com:9443/ws/bnbbtc@depth.
+	
 		this.bin_sock = new WebSocket('wss://stream.binance.com:9443/ws');
 		
 		this.bin_sock.addEventListener('open', (event) => {
@@ -275,6 +276,7 @@ class WiCrypto extends Widget{
 		//	this.subToken(params, false);
 		//}, 1000 * 5);
 		
+		/**/
 	}
 
 	async update(){

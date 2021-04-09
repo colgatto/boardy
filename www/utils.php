@@ -1,11 +1,11 @@
 <?php require_once 'config.php'; ?>
 <?php require_once 'include/head.php'; ?>
 	<?php
-		if(!is_file('store/home.json')){
-			file_put_contents('store/home.json', '[]');
+		if(!is_file('store/utils.json')){
+			file_put_contents('store/utils.json', '[]');
 			$widgets = [];
 		}else{
-			$widgets = json_decode(file_get_contents('store/home.json'), true);
+			$widgets = json_decode(file_get_contents('store/utils.json'), true);
 		}
 		echo '<script>let widgets = JSON.parse(\'' . str_replace("'", "\'", json_encode($widgets)) .'\');</script>';
 	?>
@@ -29,9 +29,9 @@
 </head>
 <body>
 	<ul class="nav nav-tabs justify-content-center">
-		<li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+		<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 		<li class="nav-item"><a class="nav-link" href="news.php">News</a></li>
-		<li class="nav-item"><a class="nav-link" href="utils.php">Utils</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#">Utils</a></li>
 		<li class="nav-item"><a class="nav-link fas fa-cog <?= ENABLE_EDITOR ? '' : 'disabled'; ?>" href="editor.php"></a></li>
 	</ul>
 	<div class="container" id="wcontainer"></div>

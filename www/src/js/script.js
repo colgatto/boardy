@@ -1,14 +1,14 @@
 const boardy_cache = new Cache('boardy_cache');
 
 $(document).ready(()=>{
-
+/*
 	let btn_config = document.getElementById('config');
 	if(btn_config){
 		btn_config.addEventListener('click', function() {
 			window.location.href = 'editor.php';
 		});
 	}
-
+*/
 	let chunked_wlist = [];
 	for (let i=0; i < widgets.length; i += 4) {
 		chunked_wlist.push(widgets.slice(i, i + 4));
@@ -37,6 +37,7 @@ $(document).ready(()=>{
 			const wid = wlist[i][j];
 
 			//CREATE INSTANCE
+			if(typeof W[wid.type] == 'undefined') continue; //se non lo trova allora è nella blacklist lato php
 			let inst = new W[wid.type].cls('card-widget-' + k, wid);
 
 			//APPEND DO TO PAGE
