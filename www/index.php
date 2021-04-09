@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="lib/css/fontawesome.min.css">
 	<link rel="stylesheet" href="src/css/style.css">
 	<link rel="stylesheet" href="src/css/colors.css">
-	<link rel="stylesheet" href="src/css/stars_background.css">
+	<!-- <link rel="stylesheet" href="src/css/stars_background.css"> -->
 	
 	<script src="lib/js/jquery-3.5.1.min.js"></script>
 	<script src="lib/js/popper.min.js"></script>

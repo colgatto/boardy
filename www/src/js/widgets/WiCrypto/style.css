@@ -15,6 +15,10 @@
     position: absolute;
     right: 5px;
 }
+
+.card-widget.WiCrypto .list-group {
+    max-height: unset;
+}
 /**********************************/
 .card-widget.WiCrypto .list-pair-info{
 	display: none;
@@ -23,12 +27,12 @@
 .card-widget.WiCrypto .list-pair-info li {
     padding: 0;
 	margin: 0;
-	font-size: 12px;
+	font-size: 10px;
 	border-bottom: 1px solid #00000091;
+	height: 16px !important;
 }
 /**********************************/
 .card-widget.WiCrypto .depth_price{
-	font-weight: bold;
 	padding-left: 5px;
 	position: relative;
 	z-index: 1;
@@ -39,6 +43,10 @@
 
 .card-widget.WiCrypto .depth_bids .depth_price{
 	color: #02c076;
+}
+.card-widget.WiCrypto .depth_bids:hover,
+.card-widget.WiCrypto .depth_asks:hover {
+    background: #ffffff2e;
 }
 /**********************************/
 .card-widget.WiCrypto .depth_qnt{
@@ -51,10 +59,10 @@
 .card-widget.WiCrypto .depth_bar {
     position: absolute;
     width: 89%;
-    height: 18px;
+    height: 16px;
     right: 0;
     z-index: 1;
-    margin-top: -18px;
+    margin-top: -14px;
 }
 .card-widget.WiCrypto .depth_asks .depth_bar{
     background: #f8496054;

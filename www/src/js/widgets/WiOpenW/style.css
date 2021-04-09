@@ -2,7 +2,7 @@
 	width: 100%;
 }
 .card-widget.WiOpenW tr{
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #ffffff2b
 }
 .card-widget.WiOpenW tr:last-child{
 	border-bottom: 0;

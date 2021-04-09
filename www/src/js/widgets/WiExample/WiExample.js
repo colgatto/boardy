@@ -14,11 +14,17 @@ class WiExample extends Widget{
 		super(id, opt, 5 * 1000);
 	}
 
-	async run(){
-		/* THE MAIN ACTION OF WIDGET */
-		/* run once or every N second based on interval */
-		$('#' + this.domId + ' .list-group').append('<li>' + ( new Date() ) + '</li>');
+	async setup(){
+		/* INITIAL SETUP */
+		/* run only once at start of page */
 		$('#' + this.domId + ' .list-group').append('<li>' + this.opt.example_row + '</li>');
+	}
+
+	async update(){
+		/* THE MAIN ACTION OF WIDGET */
+		/* run after setup, once or every N second based on interval */
+		$('#' + this.domId + ' .list-group').append('<li>' + ( new Date() ) + '</li>');
+		
 	}
 }
 

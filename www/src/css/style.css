@@ -1,10 +1,19 @@
+@font-face {
+	font-family: 'Gaming';
+	src: url('../../lib/webfonts/8bit.ttf')  format('truetype');
+  }
+
 body {
+	font-family: 'Gaming', Fallback, monospace;
 	/*
 	background: url(../back.jpg) no-repeat !important;
 	background-attachment: fixed !important;
 	background-size: cover !important;
 	*/
-	background: unset;
+	font-size: 13px;
+    font-weight: lighter;
+    line-height: 0.9rem;
+	background: #000000;
 	height: 100%;
 }
 
@@ -91,12 +100,12 @@ a, .btn, body, .card,
 
 .card-widget {
 	width: 100%;
-	border-radius: 5px;
 	position: relative;
 	z-index: 1;
 	background: inherit;
 	overflow: hidden;
 	margin: 30px auto;
+	border-left: 1px solid #fff;
 }
 
 .card-widget:before {
@@ -113,8 +122,8 @@ a, .btn, body, .card,
 }
 
 .card-widget .list-group {
-    /*max-height: 315px;*/
-    margin-top: 40px;
+    max-height: 315px;
+    margin-top: 25px;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -123,13 +132,10 @@ a, .btn, body, .card,
 .card-widget .list-header button{
 	margin: 0;
 	padding: 0;
-	width: 24px;
-	height: 24px;
 	text-align: center;
 	background: transparent;
 	color: #fff;
-	border: 1px solid;
-	border-radius: 5px;
+	border: 0;
 	float: right;
 	margin-left: 3px;
 }
@@ -165,12 +171,17 @@ a, .btn, body, .card,
 	position: absolute;
     width: 100%;
     top: 0;
-	height: 40px;
-	padding: 5px 10px;
+	padding: 5px;
+	border-bottom: 1px solid #fff;
+	height: 25px !important;
 }
 
 .card-widget .list-group-item span{
 	padding-left: 0.5rem;
+}
+
+.card-widget th{
+	font-weight: unset;
 }
 
 .card-widget a {
@@ -192,6 +203,15 @@ a, .btn, body, .card,
 .card-widget a:hover{
 	color: unset;
 	text-decoration: none;
+}
+
+.card-widget .list-group-item:hover {
+	background: #3f3f3f;
+}
+
+.card-widget .list-group,
+.card-widget .list-group-item{
+	border-radius: 0 !important;
 }
 
 /********** EDITOR **********/
@@ -339,4 +359,44 @@ a, .btn, body, .card,
 }
 .choices__list--single .choices__item:hover{
 	color: #ffffff;
+}
+
+/********** CUSTOM SCROLLBAR **********/
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+*{
+	scrollbar-color: #ffffff #666666;
+	scrollbar-width: thin;
 }

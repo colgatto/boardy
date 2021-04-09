@@ -20,6 +20,15 @@ class WiCrypto extends Widget{
 		return parseFloat(p).toFixed(8).replace(/0+$/,'').replace(/\.$/,'.00');
 	}
 
+	clearZero(depth){
+		let newDepth = [];
+		for (let i = 0, l = depth.length; i < l; i++) {
+			if(parseFloat(depth[i][1]) == 0) continue;
+			newDepth.push(depth[i]);
+		}
+		return newDepth;
+	}
+
 	mergeDepth(depth, newDepth){
 		let ll = depth.length;
 		for (let i = 0, l = newDepth.length; i < l; i++) {
@@ -34,7 +43,8 @@ class WiCrypto extends Widget{
 			if(!found)
 				depth.push( newV );
 		}
-		return depth;
+
+		return this.clearZero(depth);
 	}
 
 	subToken(params = [], sub = true){
@@ -200,6 +210,11 @@ class WiCrypto extends Widget{
 						if(parseFloat(depth.bids[i][0]) > cPrice || parseFloat(depth.bids[i][1]) == 0) continue;
 						b.push(depth.bids[i]);
 					}
+
+					//this.liPairs[d.s].fullDepth.asks = this.clearZero(this.liPairs[d.s].fullDepth.asks);
+					//this.liPairs[d.s].fullDepth.bids = this.clearZero(this.liPairs[d.s].fullDepth.bids);
+
+
 					//this.liPairs[d.s].fullDepth.asks = [...a];
 					//this.liPairs[d.s].fullDepth.bids = [...b];
 					
@@ -258,7 +273,7 @@ class WiCrypto extends Widget{
 		
 		//setTimeout(()=>{
 		//	this.subToken(params, false);
-		//}, 1000 * 60 * 5);
+		//}, 1000 * 5);
 		
 	}
 
