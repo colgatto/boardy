@@ -6,7 +6,7 @@ class WiRSS extends Widget{
 
 	async update(){
 		let parser = new RSSParser();
-		boardy_cache.get('api.php?action=cors&url=' + this.opt.url, this.interval - 1000).then((rss_str) => {
+		boardy_cache.get('/api.php?action=cors&url=' + this.opt.url, this.interval - 1000).then((rss_str) => {
 			parser.parseString(rss_str, (err, feed) => {
 				if (err) throw err;
 				

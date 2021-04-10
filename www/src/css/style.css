@@ -5,11 +5,6 @@
 
 body {
 	font-family: 'Gaming', Fallback, monospace;
-	/*
-	background: url(../back.jpg) no-repeat !important;
-	background-attachment: fixed !important;
-	background-size: cover !important;
-	*/
 	font-size: 13px;
     font-weight: lighter;
     line-height: 0.9rem;
@@ -117,7 +112,7 @@ a, .btn, body, .card,
 	z-index: 1;
 	background: inherit;
 	overflow: hidden;
-	margin: 30px auto;
+	margin: 0 auto;
 	margin-top: 0;
 	border-left: 1px solid #fff;
 	border-bottom: 1px solid #fff;
@@ -137,8 +132,6 @@ a, .btn, body, .card,
 }
 
 .card-widget .list-group {
-    max-height: 315px;
-    margin-top: 25px;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -181,14 +174,15 @@ a, .btn, body, .card,
 }
 
 .card-widget .list-header{
-	background: #0000008c !important;
+	background: transparent !important;
 	cursor: default !important;
 	position: absolute;
-    width: auto;
+    width: max-content;
     top: 0;
 	padding: 5px;
 	border-bottom: 1px solid #fff;
-	height: 25px !important;
+	line-height: 1rem;
+    position: relative
 }
 
 .card-widget .list-group-item span{
@@ -204,7 +198,10 @@ a, .btn, body, .card,
     width: 100%;
     height: 100%;
     display: inline-block;
-    padding: 5px 10px;
+	padding: 5px 0px 0px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .card-widget .list-header a,

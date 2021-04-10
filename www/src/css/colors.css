@@ -60,6 +60,73 @@
 .list-black .list-header{
 	border-bottom: 1px solid #212121;
 }
+
+/**
+
+.list-red .list-header{
+	color: #ff6464;
+}
+.list-red .list-header{
+	color: #ff6464;
+}
+.list-green .list-header{
+	color: #64ff64;
+}
+.list-blue .list-header{
+	color: #6464ff;
+}
+.list-yellow .list-header{
+	color: #ffff64;
+}
+.list-cyan .list-header{
+	color: #64ffff;
+}
+.list-magenta .list-header{
+	color: #ff64ff;
+}
+.list-white .list-header{
+	color: #efefef;
+}
+.list-gray .list-header{
+	color: #646464;
+}
+.list-black .list-header{
+	color: #272727;
+}
+
+/**/
+
+.list-red .list-header i{
+	color: #ff6464;
+}
+.list-red .list-header i{
+	color: #ff6464;
+}
+.list-green .list-header i{
+	color: #64ff64;
+}
+.list-blue .list-header i{
+	color: #6464ff;
+}
+.list-yellow .list-header i{
+	color: #ffff64;
+}
+.list-cyan .list-header i{
+	color: #64ffff;
+}
+.list-magenta .list-header i{
+	color: #ff64ff;
+}
+.list-white .list-header i{
+	color: #efefef;
+}
+.list-gray .list-header i{
+	color: #646464;
+}
+.list-black .list-header i{
+	color: #272727;
+}
+
 /**/
 
 .list-red .list-group-item:hover {

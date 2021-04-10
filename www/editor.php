@@ -172,7 +172,7 @@ require_once 'include/head.php';
 			}
 		};
 
-		$.getJSON('api.php?action=data', (res) => {
+		$.getJSON('/api.php?action=data', (res) => {
 			config = res;
 			let editor = new JSONEditor(document.getElementById('editor_holder'), {
 				theme: 'bootstrap4',

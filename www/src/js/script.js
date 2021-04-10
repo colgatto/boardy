@@ -1,14 +1,7 @@
 const boardy_cache = new Cache('boardy_cache');
 
 $(document).ready(()=>{
-/*
-	let btn_config = document.getElementById('config');
-	if(btn_config){
-		btn_config.addEventListener('click', function() {
-			window.location.href = 'editor.php';
-		});
-	}
-*/
+	
 	let chunked_wlist = [];
 	for (let i=0; i < widgets.length; i += 4) {
 		chunked_wlist.push(widgets.slice(i, i + 4));
