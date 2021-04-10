@@ -27,7 +27,7 @@ function getWidgets($tabName){
 	return $widgets[$tabName];
 }
 
-function includeHeader($tabName){
+function includeHeader($tabName = false){
 	echo '<!DOCTYPE html>'
 		. '<html lang="en">'
 		. '<head>'
@@ -35,39 +35,43 @@ function includeHeader($tabName){
 			. '<title>Boardy</title>'
 			. '<link rel="stylesheet" href="/lib/css/bootstrap.min.css">'
 			. '<link rel="stylesheet" href="/lib/css/fontawesome.min.css">'
+			. '<link rel="stylesheet" href="/lib/css/jsoneditor.min.css">'
 			. '<link rel="stylesheet" href="/src/css/style.css">'
 			. '<link rel="stylesheet" href="/src/css/colors.css">'
 			. '<script src="/lib/js/jquery-3.5.1.min.js"></script>'
 			. '<script src="/lib/js/popper.min.js"></script>'
 			. '<script src="/lib/js/bootstrap.min.js"></script>'
-			. '<script src="/lib/js/rss-parser.min.js"></script>';
-	$widgets = getWidgets($tabName);
-	echo '<script>let widgets = JSON.parse(\'' . str_replace("'", "\'", json_encode($widgets)) .'\');</script>';
-	echo '<script src="/src/js/Cache.js"></script>';
-	echo '<script src="/src/js/Widget.js"></script>';
-	$wType = array_map(function($v){ return $v['type']; }, $widgets);
-	$wl = is_dir(RELATIVE_WIDGET_PATH) ? scandir(RELATIVE_WIDGET_PATH) : [];
-	$wl = array_values(array_filter( $wl, function($wd)use($wType){ return in_array($wd, $wType) && is_dir(RELATIVE_WIDGET_PATH . $wd); }) );
-	for ($i=0; $i < count($wl); $i++) { 
-		$wi_name = $wl[$i];
-		if( is_file(RELATIVE_WIDGET_PATH . $wi_name . '/' . $wi_name . '.js') ){
-			echo('<script src="' . WIDGET_PATH . $wi_name . '/' . $wi_name . '.js"></script>');
+			. '<script src="/lib/js/rss-parser.min.js"></script>'
+			. '<script src="/lib/js/jsoneditor.min.js"></script>';
+	if($tabName){
+		$widgets = getWidgets($tabName);
+		echo '<script>let widgets = JSON.parse(\'' . str_replace("'", "\'", json_encode($widgets)) .'\');</script>';
+		echo '<script src="/src/js/Cache.js"></script>';
+		echo '<script src="/src/js/Widget.js"></script>';
+		$wType = array_map(function($v){ return $v['type']; }, $widgets);
+		$wl = is_dir(RELATIVE_WIDGET_PATH) ? scandir(RELATIVE_WIDGET_PATH) : [];
+		$wl = array_values(array_filter( $wl, function($wd)use($wType){ return in_array($wd, $wType) && is_dir(RELATIVE_WIDGET_PATH . $wd); }) );
+		for ($i=0; $i < count($wl); $i++) { 
+			$wi_name = $wl[$i];
+			if( is_file(RELATIVE_WIDGET_PATH . $wi_name . '/' . $wi_name . '.js') ){
+				echo('<script src="' . WIDGET_PATH . $wi_name . '/' . $wi_name . '.js"></script>');
+			}
+			if( is_file(RELATIVE_WIDGET_PATH . $wi_name . '/style.css') ){
+				echo('<link rel="stylesheet" href="' . WIDGET_PATH . $wi_name . '/style.css">');
+			}
 		}
-		if( is_file(RELATIVE_WIDGET_PATH . $wi_name . '/style.css') ){
-			echo('<link rel="stylesheet" href="' . WIDGET_PATH . $wi_name . '/style.css">');
-		}
+		echo '<script src="/src/js/script.js"></script>';
 	}
-	echo '<script src="/src/js/script.js"></script>';
 	echo '</head>';
 }
 
-function includeNav($tabName){
+function includeNav($tabName = 'editor'){
 	echo '<ul class="nav nav-tabs justify-content-center">';
 	for ($i=0; $i < count(TABS); $i++) { 
 		$t = TABS[$i];
 		echo '<li class="nav-item"><a class="nav-link' . ( $t == $tabName ? ' active' : '' ) . '" href="/pages/' . $t . '.php">' . ucfirst($t) . '</a></li>';
 	}
-	//echo '<li class="nav-item"><a class="nav-link fas fa-cog ' . ( ENABLE_EDITOR ? '' : 'disabled' ) . '" href="editor.php"></a></li>';
+	echo '<li class="nav-item"><a class="nav-link' . ( $tabName == 'editor' ? ' active' : '' ) . ' fas fa-cog ' . ( ENABLE_EDITOR ? '' : 'disabled' ) . '" href="/editor.php"></a></li>';
 	echo '</ul>';
 }
 

@@ -57,6 +57,8 @@ It' s not a real usable widget, it' s used only if you want a clear space on you
 
 A blank page where you can scratch and draw, it will store data like WiNote.
 
+---
+
 ## Autostart
 
 ### Windows
@@ -71,14 +73,24 @@ remember to change `<PATH_TO_BOARDY_DIR>` with the real location.
 
 after restart you can view your dashboard at http://localhost:4421
 
-edit run.ps1 to change port
+edit `run.ps1` to change port
+
+inside `run.ps1` change `php -S localhost:$port` with `php -S 0.0.0.0:$port` to allow access from network (**DANGEROUS!**)
 
 ### Linux
 
 Do it yourself nerd!
 
+### Mac
+
+Pay someone to make it for you
+
+---
+
 ## Config
 
 you can disable editor whit `config.php`, is recommended to turn off editor when you don't need it.
+
+---
 
 thanks to [freepik](https://www.flaticon.com/authors/freepik) for the favicon

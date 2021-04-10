@@ -1,7 +1,12 @@
 @font-face {
 	font-family: 'Gaming';
 	src: url('../../lib/webfonts/8bit.ttf')  format('truetype');
-  }
+}
+
+html, body,
+.container{
+	height: 100%;
+}
 
 body {
 	font-family: 'Gaming', Fallback, monospace;
@@ -9,7 +14,6 @@ body {
     font-weight: lighter;
     line-height: 0.9rem;
 	background: #0a0a0a;
-	height: 100%;
 }
 
 .flex-center{
@@ -102,6 +106,16 @@ a, .btn, body, .card,
 .table thead th{
 	color: #ffffff;
 	border-bottom: 0;
+}
+
+.fixed-footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 10;
+	padding: 10px;
+	background: #00e7ff24;
+	border-top: 1px solid #00e7ff;
 }
 
 /********** WIDGET **********/
