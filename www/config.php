@@ -69,7 +69,7 @@ function includeNav($tabName = 'editor'){
 	echo '<ul class="nav nav-tabs justify-content-center">';
 	for ($i=0; $i < count(TABS); $i++) { 
 		$t = TABS[$i];
-		echo '<li class="nav-item"><a class="nav-link' . ( $t == $tabName ? ' active' : '' ) . '" href="/pages/' . $t . '.php">' . ucfirst($t) . '</a></li>';
+		echo '<li class="nav-item"><a class="nav-link' . ( $t == $tabName ? ' active' : '' ) . '" href="/index.php?t=' . $t . '">' . ucfirst($t) . '</a></li>';
 	}
 	echo '<li class="nav-item"><a class="nav-link' . ( $tabName == 'editor' ? ' active' : '' ) . ' fas fa-cog ' . ( ENABLE_EDITOR ? '' : 'disabled' ) . '" href="/editor.php"></a></li>';
 	echo '</ul>';

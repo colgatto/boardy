@@ -3,9 +3,15 @@
 	src: url('../../lib/webfonts/8bit.ttf')  format('truetype');
 }
 
-html, body,
-.container{
+html, body{
 	height: 100%;
+}
+
+.nav{
+	height: 32px !important;
+}
+.container{
+	height: calc( 100% - 32px );
 }
 
 body {
