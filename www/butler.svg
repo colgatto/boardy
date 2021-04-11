@@ -1,0 +1,7 @@
+<svg height='300px' width='300px'  fill="#000000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g>
+<circle cx="50" cy="40.122" r="2"></circle>
+<circle cx="50" cy="53.748" r="2"></circle>
+<polygon points="65,17.947 65,5 50,8.962 35,5 35,17.947 50,13.985  "></polygon>
+<circle cx="50" cy="67.375" r="2"></circle>
+<path d="M68,13.754v46.871c0,9.941-8.059,18-18,18c-9.941,0-18-8.059-18-18V13.754L9,19.947v75h82v-75L68,13.754z,M20.494,c-3.522,0-6.378-2.855-6.378-6.378c0-3.523,2.856-6.378,6.378-6.378c3.523,0,6.378,2.855,6.378,6.378   C26.873,50.459,24.018,53.314,20.494,53.314z"></path>
+<circle cx="50" cy="26.495" r="2"></circle></g></svg>

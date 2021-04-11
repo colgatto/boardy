@@ -138,24 +138,6 @@ a, .btn, body, .card,
 	border-bottom: 1px solid #fff;
 }
 
-.card-widget:before {
-	content: "";
-	position: absolute;
-	background: inherit;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: -20px;
-	filter: blur(10px);
-}
-
-.card-widget .list-group {
-    overflow: hidden;
-    overflow-y: auto;
-}
-
 .card-widget .list-header select,
 .card-widget .list-header button{
 	margin: 0;

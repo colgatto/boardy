@@ -62,7 +62,6 @@ function includeHeader($tabName = false){
 		}
 		echo '<script src="/src/js/script.js"></script>';
 	}
-	echo '</head>';
 }
 
 function includeNav($tabName = 'editor'){
