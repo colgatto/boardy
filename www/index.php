@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Boardy</title>
 	<link rel="stylesheet" href="/lib/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/lib/css/fontawesome.min.css">
 	<link rel="stylesheet" href="/lib/css/jsoneditor.min.css">
+	<link rel="stylesheet" href="/lib/css/darktheme.css">
 	<link rel="stylesheet" href="/lib/css/monokai.css">
+	<link rel="stylesheet" href="/lib/css/fontawesome.min.css">
 	<link rel="stylesheet" href="/src/css/style.css">
 	<link rel="stylesheet" href="/src/css/colors.css">
 	<script src="/lib/js/jquery-3.5.1.min.js"></script>
@@ -14,7 +15,7 @@
 	<script src="/lib/js/bootstrap.min.js"></script>
 	<script src="/lib/js/rss-parser.min.js"></script>
 	<script src="/lib/js/jsoneditor.min.js"></script>
-	<?php	
+	<?php
 		require_once __DIR__ . '/config.php';
 		if(!is_file(STORE_PATH)){		
 			$widgets = [ 'home' => [] ];
@@ -24,6 +25,7 @@
 		}
 		echo '<script>let widgets = JSON.parse(\'' . str_replace("'", "\'", json_encode($widgets)) .'\');</script>';
 	?>
+	<script src="/src/js/schema.js"></script>
 	<script src="/src/js/Cache.js"></script>
 	<script src="/src/js/Widget.js"></script>
 	<?php
@@ -45,12 +47,12 @@
 </head>
 <body>
 	<ul id="nav_tab" class="nav nav-tabs justify-content-center">
-	<?php
-		foreach ($widgets as $t => $wList) {
-			echo '<li class="nav-item"><a class="nav-link tab-link" href="#" data-tab="' . $t . '">' . ucfirst($t) . '</a></li>';
-		}
-		if(ENABLE_EDITOR) echo '<li class="nav-item"><a class="nav-link tab-link fas fa-cog" href="#" data-tab="editor"></a></li>';
-	?>
+		<?php
+			foreach ($widgets as $t => $wList) {
+				echo '<li class="nav-item"><a class="nav-link tab-link" href="#" data-tab="' . $t . '">' . ucfirst($t) . '</a></li>';
+			}
+			if(ENABLE_EDITOR) echo '<li class="nav-item"><a class="nav-link tab-link fas fa-cog" href="#" data-tab="editor"></a></li>';
+		?>
 	</ul>
 	<?php
 		foreach ($widgets as $t => $wList) {

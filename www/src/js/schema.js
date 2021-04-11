@@ -1,4 +1,57 @@
-const makeSchema = (data) => {
+const makeSchema = (tabs, data) => {
+	let wList = Object.keys(W).filter(v=>v!='instances');
+	console.log(wList);
+	let schema = {
+		type: 'object',
+		propertyNames: {
+			pattern: '^[a-zA-Z0-9]+$'
+		},
+		patternProperties: {
+			'^[a-zA-Z0-9]+$': {
+				oneOf: [{
+					type: 'array',
+					items: {
+						oneOf:[
+							/* a questo livello aggiungo oggetti per ogni tipo di widget preso dalla lista completa, aggiungo sempre tutti i wid.js e amen
+								quello sotto è di wimarks
+							*/
+							{
+								type: 'object',
+								required: [ 'title', 'color', 'icon', 'urls' ],
+								properties: {
+									title: { type: "string" },
+									icon: { type: "string" },
+									color: { enum: data.colors,  },
+									urls: {
+										type: "array",
+										items: {
+											type: 'object',
+											required: [ 'label', 'icon', 'url' ],
+											properties: {
+												label: { type: "string" },
+												icon: { type: "string" },
+												url: {
+													type: "string",
+													examples: [
+														"https:\/\/google.com",
+														"127.0.0.1:3000"
+													]
+												}
+											}
+										}
+									},
+								}
+							}
+						]			
+					}
+				}]
+			}
+		}
+	};
+
+	return schema;
+
+	/*
 	let wList = Object.keys(W).filter(v=>v!='instances');
 	let oneOf = [];
 	for (let i = 0; i < wList.length; i++) {
@@ -32,12 +85,10 @@ const makeSchema = (data) => {
 		oneOf.push(p);
 	}
 	return {
-		type: 'array',
-		title: ' ',
+		type: 'object',
+		title: 'tabs',
 		format: 'tabs',
-		items: {
-			headerTemplate: '{{self.title}}',
-			oneOf
-		}
+		items: { oneOf }
 	};
+	*/
 };

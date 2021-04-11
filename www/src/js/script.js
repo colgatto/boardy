@@ -1,5 +1,7 @@
 const boardy_cache = new Cache('boardy_cache');
 
+let editor;
+
 $(document).ready(()=>{
 	
 	$('#nav_tab .tab-link').on('click', function(e){
@@ -12,7 +14,7 @@ $(document).ready(()=>{
 		$('#container_' + tName).show();
 	});
 
-	let tabs =  Object.keys(widgets);
+	let tabs = Object.keys(widgets);
 	
 	$('.tab-link[data-tab="' + tabs[0] + '"]').click();
 
@@ -70,13 +72,28 @@ $(document).ready(()=>{
 
 	//EDITOR
 
-	const editor = new JSONEditor($('#container_editor')[0], { mode: 'code' });
-
-	$.getJSON('/store/widgets.json', (res) => {
-		editor.set(res);
-		//$('.spinner').hide();
-		//$('#jsoneditor').removeClass('hidden');
-		//$('.container').removeClass('flex-center');
+	$.getJSON('/store/data.json', (data) => {
+		editor = new JSONEditor($('#container_editor')[0], {
+			mode: 'code',
+			modes: ['code', 'text', 'tree', 'preview'],
+			schema: makeSchema(tabs, data)
+		});
+		$.getJSON('/store/widgets.json', (res) => {
+			editor.set(res);
+			$('.jsoneditor-menu').append('<button type="button" id="editor_save" class="fas fa-save"></button>');
+		});
 	});
 
+});
+
+$(document).on('click', '#editor_save', (e) => {
+	$.post('/api.php?action=save', {
+		widgets: JSON.stringify( editor.get() )
+	}, (res) => {
+		if(res == 'OK'){
+			alert('saved');
+		}else{
+			alert('ops... problems...');
+		}
+	});
 });
