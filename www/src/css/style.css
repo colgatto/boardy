@@ -14,6 +14,10 @@ html, body{
 	height: calc( 100% - 32px );
 }
 
+#container_editor{
+	padding: 0;
+}
+
 body {
 	font-family: 'Gaming', Fallback, monospace;
 	font-size: 13px;
@@ -112,16 +116,6 @@ a, .btn, body, .card,
 .table thead th{
 	color: #ffffff;
 	border-bottom: 0;
-}
-
-.fixed-footer{
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	z-index: 10;
-	padding: 10px;
-	background: #00e7ff24;
-	border-top: 1px solid #00e7ff;
 }
 
 /********** WIDGET **********/
