@@ -28,12 +28,18 @@ class WiDraw extends Widget{
 
 		this.cnv.on('mousedown', function (e) {
 			self.mousePressed = true;
-			self.draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+			self.draw(
+				( 300 / $(this).width() ) * ( e.pageX - $(this).offset().left ),
+				( 300 / $(this).height() ) * ( e.pageY - $(this).offset().top ),
+				false);
 		}).on('mouseup', function (e) {
 			self.mousePressed = false;
 		}).on('mousemove', function (e) {
 			if (self.mousePressed) {
-				self.draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+				self.draw(
+					( 300 / $(this).width() ) * ( e.pageX - $(this).offset().left ),
+					( 300 / $(this).height() ) * ( e.pageY - $(this).offset().top ),
+					true);
 			}
 		}).on('mouseleave', function (e) {
 			self.mousePressed = false;

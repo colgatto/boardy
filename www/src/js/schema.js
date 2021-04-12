@@ -4,15 +4,12 @@ const makeSchema = (data) => {
 
 	for (const key in W) {
 		if (key == 'instances') continue;
-		
+
 		let sc = typeof W[key].editor == 'undefined' ? {} : W[key].editor(data);
 		
 		sc.type = 'object';
-
 		if(typeof sc.properties == 'undefined') sc.properties = {};
 		if(typeof sc.required == 'undefined') sc.required = [];
-		
-		
 		sc.properties.type = { type: 'string' };
 		sc.properties.title = { type: 'string' };
 		sc.properties.color = { type: 'string', enum: data.colors };
@@ -36,6 +33,6 @@ const makeSchema = (data) => {
 			}
 		}
 	};
-	console.log(schema);
+	
 	return schema;
 };

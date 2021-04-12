@@ -3,6 +3,6 @@
 }
 
 .card-widget.WiDraw canvas{
-	border: 1px solid #ffffff;
 	vertical-align: middle;
+	width: 100%;
 }

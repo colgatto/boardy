@@ -288,13 +288,8 @@ class WiCrypto extends Widget{
 W.WiCrypto = {
 	cls: WiCrypto,
 	editor: (data) => ({
-		required: [ 'exchanger', 'pairs' ],
+		required: [ 'pairs' ],
 		properties: {
-			exchanger: {
-				title: 'Exchanger',
-				type: 'string',
-				enum: ['Binance'],
-			},
 			pairs: {
 				title: 'Pairs',
 				type: 'array',
