@@ -9,14 +9,14 @@ conventionally use "Wi" prefix
 class WiExample extends Widget{
 	
 	constructor(id, opt){
-		// exec run() every 5 * 1000 millisecond
+		// exec update() every 5 * 1000 millisecond
 		// change the time or remove it to run only once
 		super(id, opt, 5 * 1000);
 	}
 
 	async setup(){
 		/* INITIAL SETUP */
-		/* run only once at start of page */
+		/* run only once at start */
 		$('#' + this.domId + ' .list-group').append('<li>' + this.opt.example_text + '</li>');
 	}
 

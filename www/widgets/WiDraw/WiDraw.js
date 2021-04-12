@@ -52,14 +52,14 @@ class WiDraw extends Widget{
 		
 		this.sel_size = $('<select>'
 			+ '<option value="1">1</option>'
-			+ '<option value="3">3</option>'
-			+ '<option value="5" selected="selected">5</option>'
+			+ '<option value="3" selected="selected">3</option>'
+			+ '<option value="5">5</option>'
 			+ '<option value="7">7</option>'
 			+ '<option value="9">9</option>'
 		+ '</select>');
 
-		this.sel_color = $('<select style="width: 56px;">'
-			+ '<option value="black" selected="selected">black</option>'
+		this.sel_color = $('<select style="width: 72px;">'
+			+ '<option value="white" selected="selected">white</option>'
 			+ '<option value="blue">blue</option>'
 			+ '<option value="red">red</option>'
 			+ '<option value="green">green</option>'
@@ -71,9 +71,7 @@ class WiDraw extends Widget{
 	
 	setup(){
 		let cont = $('<div></div>');
-		if(this.opt.icon)
-			cont.append('<i class="' + this.opt.icon + '"></i>');
-		cont.append('<span>' + this.opt.title + '</span>');
+		cont.append('<div class="wi-title">' + ( this.opt.icon ? '<i class="' + this.opt.icon + '"></i>' : '' ) + this.opt.title + '</div>');
 		cont.append(this.btn_clear);
 		cont.append(this.sel_size);
 		cont.append(this.sel_color);
@@ -104,9 +102,6 @@ class WiDraw extends Widget{
 		this.saveStore();
 	}
 
-	domHeader(){
-		
-	}
 }
 
 W.WiDraw = {

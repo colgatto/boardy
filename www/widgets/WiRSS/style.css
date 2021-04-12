@@ -1,14 +1,19 @@
-.card-widget.WiRSS{
-	max-height: 700px;
-}
-
 .card-widget.WiRSS .snippet{
-	font-size: 12px;
+	font-size: 1rem;
 	border-bottom: 1px solid;
 	padding: 6px;
 	padding-top: 0;
 }
 
+.card-widget.WiRSS .snippet span.highlight{
+	color: #00eeff;
+}
+
 .card-widget.WiRSS h6{
 	font-size: 13px;
+}
+
+.card-widget.WiRSS .rss-list{
+	max-height: 700px;
+	overflow-y: auto;
 }

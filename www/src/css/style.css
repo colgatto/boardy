@@ -128,6 +128,10 @@ a, .btn, body, .card,
 	background-color: rgba(255,255,255,.2);
     border: 1px solid rgba(255,255,255,.4);
 }
+/*
+.jsoneditor{
+	height: calc( 100% - 25px );
+}
 /********** WIDGET **********/
 
 .card-widget {
@@ -145,13 +149,14 @@ a, .btn, body, .card,
 .card-widget .list-header select,
 .card-widget .list-header button{
 	margin: 0;
-	padding: 0;
+	padding: 0.3rem;
 	text-align: center;
 	background: transparent;
 	color: #fff;
 	border: 0;
 	float: right;
 	margin-left: 3px;
+	cursor: pointer;
 }
 
 .card-widget .list-header select{
@@ -179,24 +184,23 @@ a, .btn, body, .card,
 	padding: 0;
 }
 
+.card-widget th{
+	font-weight: unset;
+}
+
 .card-widget .list-header{
-	background: transparent !important;
+	background: #0a0a0a !important;
 	cursor: default !important;
 	position: absolute;
-    width: max-content;
+    width: 100%;
     top: 0;
-	padding: 5px;
-	border-bottom: 1px solid #fff;
 	line-height: 1rem;
-    position: relative
+    position: sticky
 }
+
 
 .card-widget .list-group-item span{
 	padding-left: 0.5rem;
-}
-
-.card-widget th{
-	font-weight: unset;
 }
 
 .card-widget a {
@@ -210,13 +214,21 @@ a, .btn, body, .card,
     text-overflow: ellipsis;
 }
 
-.card-widget .list-header a,
-.card-widget .list-header span{
+.card-widget .wi-title{
+	display: inline-block;
+	padding: 0.3rem;
+	border-bottom: 1px solid #fff;
+	max-width: 100%;
+}
+
+.card-widget .wi-title i{
+	margin-right: 0.5rem;
+}
+
+.card-widget .list-header a{
 	padding: 0;
 }
-.card-widget .list-header i{
-	margin-right: 5px;
-}
+
 
 .card-widget a:hover{
 	color: unset;

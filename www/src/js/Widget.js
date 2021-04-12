@@ -16,11 +16,12 @@ class Widget{
 		this._domContainer = $('<ul class="list-group"></ul>');
 		
 		this._domHeader = $('<li class="list-group-item list-header"></li>');
-		if(this.opt.icon)
-			this._domHeader.append( ( this.opt.icon ? '<i class="' + this.opt.icon + '"></i>' : '' ) );	
-		this._domHeader.append( '<span>' + this.opt.title + '</span>' );
+		this._domHeader.append( '<div class="wi-title">'
+			+ ( this.opt.icon ? '<i class="' + this.opt.icon + '"></i>' : '' )
+			+ this.opt.title
+		+ '</div>' );
 
-		this._domContent = $('<div></div>');
+		this._domContent = $('<div class="rss-list"></div>');
 
 		this._domContainer.append(this._domHeader);
 		this._domContainer.append(this._domContent);
