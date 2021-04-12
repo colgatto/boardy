@@ -24,42 +24,15 @@ class WiMarks extends Widget{
 W.WiMarks = {
 	cls: WiMarks,
 	editor: (data) => ({
-		title: 'Bookmarks group',
-		type: 'object',
-		format: 'grid-strict',
+		required: [ 'urls' ],
 		properties: {
-			title: {
-				title: 'Title',
-				type: 'string',
-				options: {
-					grid_columns: 4,
-				}
-			},
-			icon: {
-				title: 'Icon',
-				type: 'string',
-				format: 'choices',
-				enum: data.faIcons.map(c=>c[1]),
-				options: {
-					grid_columns: 4,
-				}
-			},
-			color: {
-				title: 'Color',
-				type: 'string',
-				format: 'choices',
-				options: {
-					grid_columns: 4
-				},
-				enum: data.colors
-			},
 			urls: {
 				title: 'Urls',
 				type: 'array',
-				format: 'table',
 				uniqueItems: true,
 				items: {
 					type: 'object',
+					required: [ 'label', 'icon', 'url' ],
 					properties: {
 						label: {
 							title: 'Label',
@@ -67,13 +40,11 @@ W.WiMarks = {
 						},
 						url: {
 							title: 'Url',
-							type: 'string',
-							default: 'https:\/\/'
+							type: 'string'
 						},
 						icon: {
 							title: 'Icon',
 							type: 'string',
-							format: 'choices',
 							enum: data.faIcons.map(c=>c[1])
 						}
 					}

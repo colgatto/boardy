@@ -25,10 +25,5 @@ class WiNote extends Widget{
 }
 
 W.WiNote = {
-	cls: WiNote,
-	editor: (data) => ({
-		title: 'Notepad',
-		type: 'object',
-		format: 'grid'
-	})
+	cls: WiNote
 };

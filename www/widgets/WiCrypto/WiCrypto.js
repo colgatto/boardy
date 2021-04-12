@@ -83,11 +83,11 @@ class WiCrypto extends Widget{
 
 		this.liPairs = {};
 
-		for (let i = 0; i < this.opt.coins.length; i++) {
+		for (let i = 0; i < this.opt.pairs.length; i++) {
 			let pData = {};
 			
 			
-			pData.label = this.opt.coins[i];
+			pData.label = this.opt.pairs[i];
 			pData.price = null;
 			pData.url = 'https://www.binance.com/it/trade/' + pData.label.replace('/', '_');
 			
@@ -288,39 +288,19 @@ class WiCrypto extends Widget{
 W.WiCrypto = {
 	cls: WiCrypto,
 	editor: (data) => ({
-		title: 'Crypto Ticker',
-		type: 'object',
-		format: 'grid-strict',
+		required: [ 'exchanger', 'pairs' ],
 		properties: {
 			exchanger: {
 				title: 'Exchanger',
 				type: 'string',
-				//format: 'choices',
 				enum: ['Binance'],
-				options: {
-					grid_columns: 6
-				},
 			},
-			color: {
-				title: 'Color',
-				type: 'string',
-				format: 'choices',
-				enum: data.colors,
-				options: {
-					grid_columns: 6
-				},
-			},
-			coins: {
+			pairs: {
 				title: 'Pairs',
 				type: 'array',
-				format: 'table',
-				options: {
-					grid_columns: 12
-				},
 				items: {
-					title: ' ',
+					title: 'Pair',
 					type: 'string',
-					format: 'choices',
 					enum: data.coinPairs
 				}
 			}

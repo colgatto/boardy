@@ -76,7 +76,7 @@ $(document).ready(()=>{
 		editor = new JSONEditor($('#container_editor')[0], {
 			mode: 'code',
 			modes: ['code', 'text', 'tree', 'preview'],
-			schema: makeSchema(tabs, data)
+			schema: makeSchema(data)
 		});
 		$.getJSON('/store/widgets.json', (res) => {
 			editor.set(res);

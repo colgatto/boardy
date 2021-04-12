@@ -17,7 +17,7 @@ class WiExample extends Widget{
 	async setup(){
 		/* INITIAL SETUP */
 		/* run only once at start of page */
-		$('#' + this.domId + ' .list-group').append('<li>' + this.opt.example_row + '</li>');
+		$('#' + this.domId + ' .list-group').append('<li>' + this.opt.example_text + '</li>');
 	}
 
 	async update(){
@@ -35,20 +35,20 @@ W.WiExample = {
 	//add class with "cls" key
 	cls: WiExample,
 
-	// function editor(data) return the json schema used by "json-editor" to edit user settings in page editor.php
-	// data contains the "data.json" object, you can use it to access colors, icons and more...
-	// for documentation see: https://github.com/json-editor/json-editor
-	editor: (data) => {
-		return {
-			title: 'Example widget',
-			type: 'object',
-			format: 'grid',
-			properties: {
-				example_row: {
-					title: 'example_row',
-					type: 'string'
-				}
+	// function editor(data) return the json schema for widget's settings
+	// argument data contains the "data.json" object, you can use it to access colors, icons and more...
+	editor: (data) => ({
+		required: [ 'example_text', 'exColor' ],
+		properties: {
+			example_text: {
+				title: 'example Text',
+				type: 'string'
+			},
+			exColor: {
+				title: 'Example Color',
+				type: 'string',
+				enum: data.colors
 			}
-		};
-	}
+		}
+	})
 };

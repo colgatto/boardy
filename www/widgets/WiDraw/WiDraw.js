@@ -104,12 +104,5 @@ class WiDraw extends Widget{
 }
 
 W.WiDraw = {
-	cls: WiDraw,
-	editor: (data) => {
-		return {
-			title: 'WiDraw',
-			type: 'object',
-			format: 'grid'
-		};
-	}
+	cls: WiDraw
 };

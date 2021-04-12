@@ -82,9 +82,7 @@ class WiOpenW extends Widget{
 W.WiOpenW = {
 	cls: WiOpenW,
 	editor: (data) => ({
-		title: 'OpenWeather',
-		type: 'object',
-		format: 'grid',
+		required: [ 'location', 'apiKey' ],
 		properties: {
 			location: {
 				title: 'Location',

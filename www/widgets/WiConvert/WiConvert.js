@@ -110,20 +110,5 @@ class WiConvert extends Widget{
 }
 
 W.WiConvert = {
-	cls: WiConvert,
-	editor: (data) => {
-		return {
-			title: 'Base Converter',
-			type: 'object',
-			format: 'grid',
-			/*
-			properties: {
-				example_row: {
-					title: 'example_row',
-					type: 'string'
-				}
-			}
-			*/
-		};
-	}
+	cls: WiConvert
 };

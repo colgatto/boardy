@@ -17,7 +17,7 @@
 	<script src="/lib/js/jsoneditor.min.js"></script>
 	<?php
 		require_once __DIR__ . '/config.php';
-		if(!is_file(STORE_PATH)){		
+		if(!is_file(STORE_PATH)){
 			$widgets = [ 'home' => [] ];
 			file_put_contents(STORE_PATH, json_encode($widgets));
 		}else{
@@ -29,10 +29,8 @@
 	<script src="/src/js/Cache.js"></script>
 	<script src="/src/js/Widget.js"></script>
 	<?php
-		$wList = array_merge(...array_values($widgets));
-		$wType = array_map(function($v){ return $v['type']; }, $wList);
 		$wl = is_dir(RELATIVE_WIDGET_PATH) ? scandir(RELATIVE_WIDGET_PATH) : [];
-		$wl = array_values(array_filter( $wl, function($wd)use($wType){ return in_array($wd, $wType) && is_dir(RELATIVE_WIDGET_PATH . $wd); }) );
+		$wl = array_values(array_filter( $wl, function($wd){ return !in_array($wd, ['.','..','WiExample']) && is_dir(RELATIVE_WIDGET_PATH . $wd); }) );
 		for ($i=0; $i < count($wl); $i++) { 
 			$wi_name = $wl[$i];
 			if( is_file(RELATIVE_WIDGET_PATH . $wi_name . '/' . $wi_name . '.js') ){

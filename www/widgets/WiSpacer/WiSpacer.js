@@ -15,9 +15,7 @@ class WiSpacer extends Widget{
 W.WiSpacer = {
 	cls: WiSpacer,
 	editor: (data) => ({
-		title: 'Spacer',
-		type: 'object',
-		format: 'grid',
+		required: [ 'height' ],
 		properties: {
 			height: {
 				title: 'Height in px',

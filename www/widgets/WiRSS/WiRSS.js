@@ -40,9 +40,7 @@ class WiRSS extends Widget{
 W.WiRSS = {
 	cls: WiRSS,
 	editor: (data) => ({
-		title: 'RSS widget',
-		type: 'object',
-		format: 'grid',
+		required: [ 'url' ],
 		properties: {
 			url: {
 				title: 'url',
