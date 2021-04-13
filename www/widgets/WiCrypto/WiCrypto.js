@@ -287,7 +287,7 @@ class WiCrypto extends Widget{
 
 W.WiCrypto = {
 	cls: WiCrypto,
-	editor: (data) => ({
+	settings: {
 		required: [ 'pairs' ],
 		properties: {
 			pairs: {
@@ -295,10 +295,9 @@ W.WiCrypto = {
 				type: 'array',
 				items: {
 					title: 'Pair',
-					type: 'string',
-					enum: data.coinPairs
+					type: 'string'
 				}
 			}
 		}
-	})
+	}
 };

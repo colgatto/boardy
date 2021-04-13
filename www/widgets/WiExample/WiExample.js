@@ -35,19 +35,17 @@ W.WiExample = {
 	//add class with "cls" key
 	cls: WiExample,
 
-	// function editor(data) return the json schema for widget's settings
-	// argument data contains the "data.json" object, you can use it to access colors, icons and more...
-	editor: (data) => ({
-		required: [ 'example_text', 'exColor' ],
+	// the json schema for widget's settings
+	settings: {
+		required: [ 'example_text', 'num' ],
 		properties: {
 			example_text: {
 				title: 'example Text',
 				type: 'string'
 			},
-			exColor: {
-				title: 'Example Color',
-				type: 'string',
-				enum: data.colors
+			num: {
+				title: 'Example num',
+				type: 'number'
 			}
 		}
 	})

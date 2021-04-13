@@ -81,7 +81,7 @@ class WiOpenW extends Widget{
 
 W.WiOpenW = {
 	cls: WiOpenW,
-	editor: (data) => ({
+	settings: {
 		required: [ 'location', 'apiKey' ],
 		properties: {
 			location: {
@@ -93,5 +93,5 @@ W.WiOpenW = {
 				type: 'string'
 			}
 		},
-	})
+	}
 };

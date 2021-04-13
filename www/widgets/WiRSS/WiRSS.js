@@ -49,7 +49,7 @@ class WiRSS extends Widget{
 
 W.WiRSS = {
 	cls: WiRSS,
-	editor: (data) => ({
+	settings: {
 		required: [ 'url' ],
 		properties: {
 			url: { type: 'string' },
@@ -58,5 +58,5 @@ W.WiRSS = {
 				items: { type: 'string' }
 			}
 		}
-	})
+	}
 };

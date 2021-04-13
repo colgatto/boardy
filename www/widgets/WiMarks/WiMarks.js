@@ -23,7 +23,7 @@ class WiMarks extends Widget{
 
 W.WiMarks = {
 	cls: WiMarks,
-	editor: (data) => ({
+	settings: {
 		required: [ 'urls' ],
 		properties: {
 			urls: {
@@ -45,11 +45,11 @@ W.WiMarks = {
 						icon: {
 							title: 'Icon',
 							type: 'string',
-							enum: data.faIcons.map(c=>c[1])
+							//enum: data.faIcons.map(c=>c[1]) //FIXME
 						}
 					}
 				}
 			}
 		}
-	})
+	}
 };

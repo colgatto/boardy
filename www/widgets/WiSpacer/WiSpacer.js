@@ -14,7 +14,7 @@ class WiSpacer extends Widget{
 
 W.WiSpacer = {
 	cls: WiSpacer,
-	editor: (data) => ({
+	settings: {
 		required: [ 'height' ],
 		properties: {
 			height: {
@@ -22,5 +22,5 @@ W.WiSpacer = {
 				type: 'number'
 			}
 		}
-	})
+	}
 };

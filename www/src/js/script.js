@@ -71,17 +71,14 @@ $(document).ready(()=>{
 	}
 
 	//EDITOR
-
-	$.getJSON('/store/data.json', (data) => {
-		editor = new JSONEditor($('#container_editor')[0], {
-			mode: 'code',
-			//modes: ['code', 'text', 'tree', 'preview'],
-			schema: makeSchema(data)
-		});
-		$.getJSON('/store/widgets.json', (res) => {
-			editor.set(res);
-			$('.jsoneditor-menu').append('<button type="button" id="editor_save" class="fas fa-save"></button>');
-		});
+	editor = new JSONEditor($('#container_editor')[0], {
+		mode: 'code',
+		//modes: ['code', 'text', 'tree', 'preview'],
+		schema: makeSchema()
+	});
+	$.getJSON('/widgets.json', (res) => {
+		editor.set(res);
+		$('.jsoneditor-menu').append('<button type="button" id="editor_save" class="fas fa-save"></button>');
 	});
 
 });
