@@ -2,48 +2,22 @@
 
 require_once __DIR__ . '/config.php';
 
-if(!isset($_GET['action'])){
-	die('no action');
-}
+if(!isset($_GET['wi'])) die('NO wi');
+$wi = $_GET['wi'];
+$wi_dir_path = __DIR__ . '/widgets' . '/' . $wi;
+$wi_api_path = $wi_dir_path . '/api.php';
+if(!preg_match('/^[a-zA-Z0-9]+$/', $wi) || !is_dir($wi_dir_path) || !is_file($wi_api_path)) die('NO');
 
-switch($_GET['action']){
-	case 'cors':
-		if(isset($_GET['url']))
-			die(file_get_contents($_GET['url']));
-	/*
-	case 'data':
-		$data = json_decode(file_get_contents('store/data.json'), true);
-		try{
-			$bin_data = json_decode(file_get_contents('https://api.binance.com/api/v3/exchangeInfo'), true);
-			$p = [];
-			for ($i=0, $l = count($bin_data['symbols']); $i < $l; $i++) {
-				$s = $bin_data['symbols'][$i];
-				array_push($p, $s['baseAsset'] . '/' . $s['quoteAsset']);
-			}
-			$data['coinPairs'] = $p;
-			file_put_contents('store/data.json', json_encode($data, JSON_PRETTY_PRINT));
-		}catch(Exception $e){}
-		
-		if(!is_file('widgets.json')){
-			file_put_contents('widgets.json', '[]');
-			$wlist = [];
-		}else{
-			$wlist = json_decode(file_get_contents('widgets.json'), true);
-		}
-		$data['wlist'] = $wlist;
-		
-		die(json_encode($data));
-	*/
-	case 'save':
-		if(isset($_POST['widgets'])){
-			try{
-				$d = json_decode($_POST['widgets'], true);
-				file_put_contents(STORE_PATH, json_encode($d, JSON_PRETTY_PRINT));
-			}catch(Exception $e){
-				die($e);
-			}
-			die('OK');
-		}
-}
+if(!isset($_GET['method'])) die('NO method');
+$method = $_GET['method'];
+
+$args = isset($_GET['argv']) ? json_decode($_GET['argv'], true) : [];
+
+require_once $wi_api_path; 
+
+if (!class_exists('Api')) die('NO api');
+if(!method_exists('Api', $method)) die('NO method');
+
+die( Api::$method($args) );
 
 ?>

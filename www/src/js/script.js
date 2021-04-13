@@ -87,7 +87,7 @@ $(document).ready(()=>{
 });
 
 $(document).on('click', '#editor_save', (e) => {
-	$.post('/api.php?action=save', {
+	$.post('/index.php?save=true', {
 		widgets: JSON.stringify( editor.get() )
 	}, (res) => {
 		if(res == 'OK'){

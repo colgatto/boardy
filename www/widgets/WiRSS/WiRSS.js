@@ -6,7 +6,10 @@ class WiRSS extends Widget{
 
 	async update(){
 		let parser = new RSSParser();
-		boardy_cache.get('/api.php?action=cors&url=' + this.opt.url, this.interval - 1000).then((rss_str) => {
+
+		let apiUrl = this.apiCall('cors', { url: this.opt.url });
+		
+		boardy_cache.get(apiUrl, this.interval - 1000).then((rss_str) => {
 			parser.parseString(rss_str, (err, feed) => {
 				if (err) throw err;
 				
@@ -25,6 +28,7 @@ class WiRSS extends Widget{
 
 					if(typeof this.opt.highlight == 'undefined') this.opt.highlight = [];
 
+					//FIXME highlight da rifare come si deve (case insensitive ma deve mantenere lo stesso case)
 					for (let j = 0; j < this.opt.highlight.length; j++) {
 						const hi = this.opt.highlight[j];
 						cont = cont.replace(RegExp(hi,'gim'), '<span class="highlight">' + hi + '</span>');

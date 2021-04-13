@@ -1,3 +1,18 @@
+<?php
+	require_once __DIR__ . '/config.php';
+	if(isset($GET['save'])){
+		if(!ENABLE_EDITOR) die('NO');
+		if(isset($_POST['widgets'])){
+			try{
+				$d = json_decode($_POST['widgets'], true);
+				file_put_contents(STORE_PATH, json_encode($d, JSON_PRETTY_PRINT));
+			}catch(Exception $e){
+				die($e);
+			}
+			die('OK');
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +31,6 @@
 	<script src="/lib/js/rss-parser.min.js"></script>
 	<script src="/lib/js/jsoneditor.min.js"></script>
 	<?php
-		require_once __DIR__ . '/config.php';
 		if(!is_file(STORE_PATH)){
 			$widgets = [ 'home' => [] ];
 			file_put_contents(STORE_PATH, json_encode($widgets));

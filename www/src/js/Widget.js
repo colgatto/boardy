@@ -80,6 +80,12 @@ class Widget{
 
 	/////////////////////////////////////////
 
+	apiCall(method, argv = {}){
+		return '/api.php?wi=' + encodeURIComponent(this.constructor.name) + '&method=' + encodeURIComponent(method) + '&argv=' + encodeURIComponent(JSON.stringify(argv) ); 
+	}
+
+	/////////////////////////////////////////
+
 	async loop(){
 		await this.update();
 		if(this.interval){
