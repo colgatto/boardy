@@ -10,7 +10,7 @@
 	color: #00eeff;
 }
 
-.card-widget.WiRSS .rss-list{
+.card-widget.WiRSS .wi-content{
 	max-height: 700px;
 	overflow-y: auto;
 }

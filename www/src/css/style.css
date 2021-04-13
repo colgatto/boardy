@@ -3,7 +3,6 @@
 	src: url('../../lib/webfonts/8bit.ttf')  format('truetype');
 }
 
-
 html, body{
 	height: 100%;
 }
@@ -161,7 +160,7 @@ a, .btn, body, .card,
 	color: #fff;
 	border: 0;
 	float: right;
-	margin-left: 3px;
+	margin-right: 0.15rem;
 	cursor: pointer;
 }
 
@@ -209,12 +208,15 @@ a, .btn, body, .card,
 	padding-left: 0.5rem;
 }
 
+.card-widget .list-group-item {
+	border: 0;
+}
+
 .card-widget a {
     cursor: pointer;
     width: 100%;
     height: 100%;
     display: inline-block;
-	padding-top: 0.1rem;
 	padding-left: 0.5rem;
     overflow: hidden;
     white-space: nowrap;

@@ -21,7 +21,7 @@ class Widget{
 			+ this.opt.title
 		+ '</div>' );
 
-		this._domContent = $('<div class="rss-list"></div>');
+		this._domContent = $('<div class="wi-content"></div>');
 
 		this._domContainer.append(this._domHeader);
 		this._domContainer.append(this._domContent);
