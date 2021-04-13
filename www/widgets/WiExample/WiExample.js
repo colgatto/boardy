@@ -48,5 +48,5 @@ W.WiExample = {
 				type: 'number'
 			}
 		}
-	})
+	}
 };
